@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/Root.gd" type="Script" id=1]
+[ext_resource path="res://assets/window.png" type="Texture" id=2]
+[ext_resource path="res://assets/button01.png" type="Texture" id=3]
+[ext_resource path="res://assets/button02.png" type="Texture" id=4]
+[ext_resource path="res://assets/font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/lineedit.tres" type="StyleBox" id=6]
+
+[node name="Root" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RootContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -261.0
+margin_top = -184.0
+margin_right = 261.0
+margin_bottom = 184.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="TextureRect" parent="RootContainer"]
+margin_right = 522.0
+margin_bottom = 368.0
+texture = ExtResource( 2 )
+
+[node name="Container" type="VBoxContainer" parent="RootContainer/Window"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -134.0
+margin_right = 240.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="StoryLabel" type="Label" parent="RootContainer/Window/Container"]
+margin_right = 480.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 480, 240 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "PlaceHolder"
+autowrap = true
+
+[node name="PlayerEditContainer" type="HBoxContainer" parent="RootContainer/Window/Container"]
+margin_top = 244.0
+margin_right = 480.0
+margin_bottom = 266.0
+custom_constants/separation = 10
+alignment = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="RootContainer/Window/Container/PlayerEditContainer"]
+margin_right = 375.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+custom_styles/read_only = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/selection_color = Color( 0.647059, 0.647059, 0.647059, 1 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/minimum_spaces = 0
+text = "PlaceHolder"
+
+[node name="OkButton" type="TextureButton" parent="RootContainer/Window/Container/PlayerEditContainer"]
+margin_left = 385.0
+margin_right = 480.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="OkContainer" type="HBoxContainer" parent="RootContainer/Window/Container/PlayerEditContainer/OkButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="OkLabel" type="Label" parent="RootContainer/Window/Container/PlayerEditContainer/OkButton/OkContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 28.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ok"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="RootContainer/Window/Container/PlayerEditContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="RootContainer/Window/Container/PlayerEditContainer/OkButton" to="." method="_on_OkButton_pressed"]
