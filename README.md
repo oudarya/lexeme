@@ -4,3 +4,7 @@ Lexeme is a mad-libs inspired text based game where you are asked to provide var
 Download the game at : https://oudarya.itch.io/lexeme
 
 Gfx inspired by Eliot Gardepe : https://egardepe.itch.io/
+
+TOOLS USED:</b>
+
+Godot Game Engine : https://godotengine.org/
