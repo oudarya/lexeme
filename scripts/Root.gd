@@ -102,7 +102,7 @@ func check_if_done():
 	return ans.size() == cur_story.prompts.size()
 
 func ask():
-		story.text += ques_base % cur_story.prompts[ans.size()] + " please?"
+	story.text += ques_base % cur_story.prompts[ans.size()] + " please?"
 
 func is_done():
 	if check_if_done():
